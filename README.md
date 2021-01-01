@@ -34,10 +34,10 @@ Hey there, if you find that there is any sort of algorithm or data structure whi
 
 ## Preview of App
 
-<img src="1.PNG">
+<img src="https://github.com/dragonman164/Algorithm-Book/blob/master/1.PNG">
 <br><br>
 
-<img src="2.PNG">
+<img src="https://github.com/dragonman164/Algorithm-Book/blob/master/2.PNG">
 <br><br>
 
 ## Installation and Usage
