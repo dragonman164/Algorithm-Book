@@ -1,0 +1,66 @@
+{% extends "algorithms/base.html" %}
+
+{% block title %}
+  <title>Available Languages</title>
+{% endblock title %}
+
+
+
+{% block body %}
+  <h1 style="text-align:center">{{algoname}}</h1>
+
+
+
+  <div class="row row-cols-1 row-cols-md-2 g-4 m-4 d-flex justify-content-center">
+    
+    <div class="col" style="width: 300px;height:150px ;margin-bottom: 80px;">
+      <div class="card ">
+        {% load static %}
+        <img src="{% static 'algorithms/images/cpp.png' %}" class="card-img-top" alt="..." style="width: 170px;height:150px">
+        <div class="card-body">
+          <h5 class="card-title">C++ Code</h5>
+          {% if cpp_code %}
+          <a href="/curralgo/{{algoname}}/cpp" class="btn btn-success">Click Here to View</a>
+          {% else %}
+          <a href="#" class="btn btn-success disabled">Click Here to View</a>
+          {% endif %}
+         
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col" style="width: 300px;height:150px ;margin-bottom: 80px;">
+      <div class="card ">
+        {% load static %}
+        <img src="{% static 'algorithms/images/python.png' %}" class="card-img-top" alt="..." style="width: 170px;height:150px">
+        <div class="card-body">
+          <h5 class="card-title">Python Code</h5>
+          {% if py_code %}
+          <a href="/curralgo/{{algoname}}/py" class="btn btn-success">Click Here to View</a>
+          {% else %}
+          <a href="#" class="btn btn-success disabled">Click Here to View</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col" style="width: 300px;height:150px ;margin-bottom: 80px;">
+      <div class="card ">
+        {% load static %}
+        <img src="{% static 'algorithms/images/README.png' %}" class="card-img-top" alt="..." style="width: 170px;height:150px">
+        <div class="card-body">
+          <h5 class="card-title">How this works?</h5>
+          {% if readme %}
+          <a href="/curralgo/{{algoname}}/readme" class="btn btn-success">Click Here to View</a>
+          {% else %}
+          <a href="#" class="btn btn-success disabled">Click Here to View</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+{% endblock body %}

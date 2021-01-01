@@ -1,0 +1,90 @@
+{% extends "algorithms/base.html" %}
+
+{% block title %}
+  <title>{{algoname}}</title>
+{% endblock title %}
+
+{% block body %}
+  <h1 style ="text-align:center">{{algoname}}</h1>
+  {% if cpp_code %}
+        
+ <h2 style="padding-left:100px">C++ Code</h2>
+  <pre style="margin:40px ;">
+    <code class="cpp">
+   {{cpp_code}}
+</code>
+    </pre>
+
+
+    {% comment %}
+      
+   
+    {% if output %}
+<h3 style="padding-left:100px">Try Yourself</h1>
+  <pre style="margin:40px ;font-size:15px">
+    <code class="python">
+{{output}}
+</code>
+<a href="/curralgo/{{algoname}}/cpp?run=true"><button type="button" class="btn btn-primary btn-sm disabled" >Successfully Executed!</button></a>
+    </pre>
+    {% else %}
+    <h3 style="padding-left:100px">Try Yourself</h1>
+      <pre style="margin:40px ;font-size:15px">
+        <code class="python">
+    Output will come here
+    </code>
+    <a href="/curralgo/{{algoname}}/cpp?run=true"><button type="button" class="btn btn-primary btn-sm" >Click to Run</button></a>
+        </pre>
+{% endif %}
+
+{% endcomment %}
+
+    {% endif %}
+
+
+    
+  {% if python_code %}
+    
+ <h2 style="padding-left:100px">Python Code</h2>
+  <pre style="margin:40px ;font-size:15px">
+    <code class="python">
+ {{python_code}}
+</code>
+    </pre>
+
+{% if output %}
+<h3 style="padding-left:100px">Try Yourself</h1>
+  <pre style="margin:40px ;font-size:15px">
+    <code class="python">
+{{output}}
+</code>
+<a href="/curralgo/{{algoname}}/py?run=true"><button type="button" class="btn btn-primary btn-sm disabled" >Successfully Executed!</button></a>
+    </pre>
+    {% else %}
+    <h3 style="padding-left:100px">Try Yourself</h1>
+      <pre style="margin:40px ;font-size:15px">
+        <code class="python">
+    Output will come here
+    </code>
+    <a href="/curralgo/{{algoname}}/py?run=true"><button type="button" class="btn btn-primary btn-sm" >Click to Run</button></a>
+        </pre>
+{% endif %}
+
+
+   
+  
+
+    {% endif %}
+   
+
+     
+
+
+    {% if readme_code %}    
+ <h2 style="padding-left:100px">How it works?</h2>
+ <div class="container-sm" style="background-color:rgb(209, 202, 202);margin: 50px;">
+  {% load markdownify%}
+    {{readme_code|markdownify}}
+  </div>
+    {% endif %}
+{% endblock body %}

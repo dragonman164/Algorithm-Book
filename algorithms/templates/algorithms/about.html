@@ -1,0 +1,14 @@
+{% extends "algorithms/base.html" %}
+
+
+{% block title %}
+  <title>Learn More</title>
+{% endblock title %}
+
+
+{% block body %}
+<div class="container-sm" style="background-color:rgb(209, 202, 202);margin: 50px;">
+{% load markdownify%}
+  {{readme|markdownify}}
+</div>
+{% endblock body %}
