@@ -90,7 +90,7 @@ def curr_algorithm(request,algoname,langname):
         elif elem[-2:] == "py" and langname == "py":
             params['python_code'] = open(f'Codes/{algoname}/{elem}').read()
             if run_code == "true":
-                output = subprocess.check_output(f"py Codes/{algoname}/{elem}")
+                output = subprocess.check_output(f"python Codes/{algoname}/{elem}")
                 params['output'] = output.decode('utf-8')
         elif elem[-2:] == "md" and langname =="readme":
             params['readme_code'] = open(f'Codes/{algoname}/{elem}').read()
