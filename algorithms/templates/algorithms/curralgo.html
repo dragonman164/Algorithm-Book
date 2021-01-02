@@ -1,19 +1,43 @@
 {% extends "algorithms/base.html" %}
 
 {% block title %}
-  <title>{{algoname}}</title>
+  <title>AlgoBook | {{algoname}}</title>
 {% endblock title %}
 
 {% block body %}
-  <h1 style ="text-align:center">{{algoname}}</h1>
-  {% if cpp_code %}
-        
- <h2 style="padding-left:100px">C++ Code</h2>
-  <pre style="margin:40px ;">
-    <code class="cpp">
-   {{cpp_code}}
-</code>
+<main>
+  <section>
+  <div class="container">
+    <h1 class="section-heading">{{algoname}}</h1>
+    {% if cpp_code %}   
+    <h2>C++ Code</h2>
+    <pre style="margin:40px ;">
+      <code class="cpp">
+      {{cpp_code}}
+      </code>
     </pre>
+    {% endif %}
+
+    {% if python_code %}
+    <h2>Python Code</h2>
+      <pre style="margin:40px ;font-size:15px">
+        <code class="python">
+    {{python_code}}
+    </code>
+    </pre>
+    {% endif %}
+
+    {% if readme_code %}    
+    <h2>How it works?</h2>
+    <div class="readme container">
+      {% load markdownify%}
+        {{readme_code|markdownify}}
+    </div>
+    {% endif %}
+  </div>
+  </section>
+</main>
+  
 
 
     {% comment %}
@@ -39,18 +63,10 @@
 
 {% endcomment %}
 
-    {% endif %}
 
 
     
-  {% if python_code %}
-    
- <h2 style="padding-left:100px">Python Code</h2>
-  <pre style="margin:40px ;font-size:15px">
-    <code class="python">
- {{python_code}}
-</code>
-    </pre>
+
 
 
     {% comment %}
@@ -78,17 +94,6 @@
 {% endcomment %}
   
 
-    {% endif %}
-   
 
-     
-
-
-    {% if readme_code %}    
- <h2 style="padding-left:100px">How it works?</h2>
- <div class="container-sm" style="background-color:rgb(209, 202, 202);margin: 50px;">
-  {% load markdownify%}
-    {{readme_code|markdownify}}
-  </div>
-    {% endif %}
+  
 {% endblock body %}
