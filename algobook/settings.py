@@ -26,8 +26,8 @@ SECRET_KEY = 'f*sms=lz&2boz=7y=%0!m9wxe5@qi-!^tr*07w$euptzo+8xz('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'algorithms',
     'markdownify',
 ]
@@ -151,7 +152,7 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
 
 
 MARKDOWNIFY_MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code','markdown.extensions.codehilite',
-                                   'markdown.extensions.extra', ]
+                                   'markdown.extensions.extra', 'markdown.extensions.emoji']
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
