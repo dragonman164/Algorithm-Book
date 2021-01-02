@@ -152,7 +152,7 @@ MARKDOWNIFY_WHITELIST_ATTRS = [
 
 
 MARKDOWNIFY_MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code','markdown.extensions.codehilite',
-                                   'markdown.extensions.extra', 'markdown.extensions.emoji']
+                                   'markdown.extensions.extra',]
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
