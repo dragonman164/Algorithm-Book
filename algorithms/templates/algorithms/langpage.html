@@ -20,7 +20,7 @@
             {% if cpp_code %}
               <a href="/curralgo/{{algoname}}/cpp" class="btn btn-success">View</a>
             {% else %}
-              <button href="#" class="btn btn-success">Not Available</button>
+              <button class="btn btn-success">Not Available</button>
             {% endif %}
           </div>
         </article>
@@ -28,10 +28,10 @@
           <img src="{% static 'algorithms/images/python.png' %}" class="card-img-top" style="width: 80px;">
           <div class="card-body">
             <h2 class="algorithm__name">Python Code</h2>
-            {% if cpp_code %}
+            {% if py_code %}
               <a href="/curralgo/{{algoname}}/py" class="btn btn-success">View</a>
             {% else %}
-              <button href="#" class="btn btn-success">Not Available</button>
+              <button class="btn btn-success">Not Available</button>
             {% endif %}
           </div>
         </article>
@@ -39,10 +39,10 @@
           <img src="{% static 'algorithms/images/README.png' %}" class="card-img-top" style="width: 80px;">
           <div class="card-body">
             <h2 class="algorithm__name">How this works?</h2>
-            {% if cpp_code %}
+            {% if readme %}
               <a href="/curralgo/{{algoname}}/readme" class="btn btn-success">View</a>
             {% else %}
-              <button href="#" class="btn btn-success">Not Available</button>
+              <button class="btn btn-success">Not Available</button>
             {% endif %}
           </div>
         </article>
