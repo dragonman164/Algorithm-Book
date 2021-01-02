@@ -2,13 +2,19 @@
 
 
 {% block title %}
-  <title>Learn More</title>
+  <title>ALgoBook | Learn More</title>
 {% endblock title %}
 
 
 {% block body %}
-<div class="container-sm" style="background-color:rgb(209, 202, 202);margin: 50px;">
-{% load markdownify%}
-  {{readme|markdownify}}
-</div>
+<main>
+  <section class="about">
+    <h1 class="section-heading">About Us</h1>
+    <div class="container">
+      {% load markdownify%}
+      {{readme|markdownify}}
+    </div>
+  </section>
+</main>
+
 {% endblock body %}

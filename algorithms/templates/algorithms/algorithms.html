@@ -1,34 +1,32 @@
 {% extends "algorithms/base.html" %}
+{% load static %}
 
 
 {% block title %}
-<title>Check Available Algorithms</title>
+<title>AlgoBook | Algorithms</title>
 {% endblock title %}
 
 
 {% block body %}
 
-
 {% for elem in algoname %}
-  
-
-<div class="row row-cols-1 row-cols-md-2 g-4 m-4 ">
-
-    {% for name in elem %}
-    
-    <div class="col" style="width: 300px;height:150px ;margin-bottom: 80px;">
-      <div class="card ">
-          {% load static %}
-        <img src="{% static 'algorithms/images/folder.png' %}" class="card-img-top" alt="..." style="width: 170px;height:150px">
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <a href="/langs/{{name}}" class="btn btn-success">Click Here to View</a>
-        </div>
+  <main>
+    <section class="algo container">
+      <h1 class="section-heading">Algorithms</h1>
+      <div class="algorithms">
+        {% for name in elem %}
+          <article class="card">
+            <img src="{% static 'algorithms/images/folder.png' %}" class="card-img-top" alt="..." style="width: 80px;">
+            <div class="card-body">
+              <h2 class="algorithm__name">{{name}}</h2>
+              <a href="/langs/{{name}}" class="btn btn-success">View</a>
+            </div>
+          </article>
+        {% endfor %}
       </div>
-    </div>
-    {% endfor %}
-  </div>
-
-  {% endfor %}
+    </section>
+  </main>
   
+{% endfor %}
+
 {% endblock body %}

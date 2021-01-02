@@ -18,11 +18,9 @@ from django.urls import path
 from .views import curr_algorithm, index,algorithms, language_page,about
 
 urlpatterns = [
-    path('',index,name="index"),
+    path('',index,name="home"),
     path('algorithms/',algorithms,name="index"),
     path('curralgo/<str:algoname>/<str:langname>',curr_algorithm,name="curralgo"),
     path('langs/<str:algoname>',language_page,name="langpage"),
     path('about/',about,name="about")
-
-   
 ]

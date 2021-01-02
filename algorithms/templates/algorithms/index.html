@@ -1,4 +1,5 @@
-{% extends "algorithms/base.html" %}
+{% extends "algorithms/base.html" %} 
+{% load static %} 
 
 
 {% block title %}
@@ -6,36 +7,56 @@
 {% endblock title %}
 
 {% block body %}
-<div class="container-sm" style="background-color:blueviolet;margin: 50px;">
-  <p class="fontlarge">Welcome to Algo Book</p>
-  <p class="fontsmall">Master Data Structures and Algorithms from the codes written by experts in various languages like C/C++ , Python, etc.</p>
-  
+<header class="hero">
+  <h1>Welcome to Algo Book</h1>
+  <p>
+    Master Data Structures and Algorithms from the codes written by experts in
+    various languages like C/C++ , Python, etc.
+  </p>
+  <div class="btn-group">
+    <a href="{% url 'index' %}" class="btn btn-primary">View Algorithms</a>
+    <a href="{% url 'about' %}" class="btn btn-primary">Contribute</a>
+  </div>
+</header>
 
-</div>
+<main>
+  <section class="current-algorithms">
+    <h2 class="section-heading">Current Algorithms</h2>
+    <div class="algorithms container">
+      {% for elem in data %}
+      <article class="card">
+        <h2 class="algorithm__name"><a href="{% url 'langpage' elem.AlgoName %}">{{elem.AlgoName}}</a></h2>
+        <div class="algorithm__lang">
+          {% if elem.cpp_code == "Yes" %}
+          <a href="/curralgo/{{elem.AlgoName}}/cpp">
+            <img
+              class="lang--img"
+              src="{% static 'algorithms/images/cpp.png' %}"
+              alt="cpp"
+            />
+          </a>
+          {% endif %} {% if elem.py_code == "Yes" %}
+          <a href="/curralgo/{{elem.AlgoName}}/py">
+            <img
+              class="lang--img"
+              src="{% static 'algorithms/images/python.png' %}"
+              alt="python"
+            />
+          </a>
+          {% endif %} {% if elem.readme == "Yes" %}
+          <a href="/curralgo/{{elem.AlgoName}}/readme">
+            <img
+              class="lang--img"
+              src="{% static 'algorithms/images/README.png' %}"
+              alt="README"
+            />
+          </a>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
 
-<table class="table table-dark table-striped" style="table-layout:fixed; border: 40px solid white;border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th scope="col">S No.</th>
-      <th scope="col">Name of the Algorithm</th>
-      <th scope="col">CPP Code Available?</th>
-      <th scope="col">Python Code Available?</th>
-      <th scope="col">Explaination Provided?</th>
-    </tr>
-    </tr>
-  </thead>
-  <tbody>
-    {% for elem in data %}
-    <tr>
-      <th scope="row">{{forloop.counter}}</th>
-      <td>{{elem.AlgoName}}</td>
-      <td>{{elem.cpp_code}}</td>
-      <td>{{elem.py_code}}</td>
-      <td>{{elem.readme}}</td>
-
-    </tr>
-    {% endfor %}
-   
-  </tbody>
-</table>  
 {% endblock body %}
